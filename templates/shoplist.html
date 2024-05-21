@@ -1,0 +1,66 @@
+{%extends 'base.html'%}
+{%block contentstyle%}
+    .product-block {
+            display: flex;
+            align-items: center;
+            background-color: #d3d3d3;
+            margin: 20px 0;
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        .product-block img {
+            width: 200px;
+            height: 200px;
+            margin-right: 20px;
+        }
+        .description {
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 20px;
+        }
+        .price {
+            text-align: right;
+            white-space: nowrap;
+        }
+        .product-block:hover .overlay {
+            display: block;
+        }
+        .overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .overlay-text {
+            color: white;
+            font-size: 160px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+{%endblock%}
+{%block content%}
+    {%for item in stock%}
+     <div class="product-block" onclick="window.location.href='/cart+{{item.name}}+{{item.price}}'">
+        <img src="{{ url_for('static', filename='images/' ~ item.sourcepic)}}" alt="Product Image">
+        <div class="description">
+            <p>{{item.name}}</p>
+        </div>
+        <div class="price">
+            <p>{{item.price}}</p>
+        </div>
+        <div class="overlay">
+            <div class="overlay-text">
+                ПОКУПАЙ
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+{%endblock%}

@@ -1,0 +1,45 @@
+{%extends 'base.html'%}
+{%block contentstyle%}
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 1000px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 100px;
+            box-sizing: border-box;
+        }
+        .left-column, .right-column {
+            font-weight: bold;
+        }
+        .left-column {
+            text-align: left;
+        }
+        .right-column {
+            text-align: right;
+        }
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <div class="left-column">
+        {%for item in customer_cart%}
+            {{item.name}}<br>
+        {%endfor%}
+    </div>
+    <div class="right-column">
+        {%for item in customer_cart%}
+            {{item.price}}<br>
+        {%endfor%}
+    </div>
+</div>
+<hr class="horizontal-line">
+<div class="container">
+    <div class="left-column">
+        Итого:
+    </div>
+    <div class="right-column">
+        {{total_sum}}
+    </div>
+</div>
+{%endblock%}

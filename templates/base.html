@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSUME.SHOP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: url('{{ url_for('static', filename='images/Happy_customer.jpg') }}') no-repeat center bottom;
+            background-size: cover;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .header h1 {
+            font-style: italic;
+        font-size: 128px;
+        color: white;
+        -webkit-text-stroke: 2px black;
+        }
+        .nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: blue;
+        }
+        .horizontal-line {
+            border: none;
+            height: 5px;
+            background-color: black;
+            margin: 20px 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            background-color: lightgray;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer-text {
+            width: 66.67%;
+            margin: 0 auto;
+            text-align: right;
+        }
+        {%block contentstyle%}
+        {%endblock%}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ПОТРЕБЛЯЙ . STORE</h1>
+    </div>
+
+    <hr class="horizontal-line">
+
+    <div class="nav">
+        <a href="/shop/shoes">Обувь</a>
+        <a href="/shop/shirts">Футболки</a>
+        <a href="/shop/outwear">Верхняя одежда</a>
+        <a href="/cart">Корзина</a>
+    </div>
+
+    {%block content%}
+    <div class="content">
+
+    </div>
+    {%endblock%}
+
+    <div class="footer">
+        <div class="footer-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet nunc vel sem vestibulum, at interdum massa fermentum.</p>
+        </div>
+    </div>
+
+</body>
+</html>
